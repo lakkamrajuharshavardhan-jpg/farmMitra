@@ -17,144 +17,59 @@
   }
 }
 
-/* ── Cropin & OrbitAI Light & Dark Glassmorphism Panels ───────────────────── */
-.glass-panel-light {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
+/* ── Custom Component Utilities ──────────────────────────────── */
+@layer components {
+  .glass-panel-light {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 
-.glass-card-light {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
+  .glass-card-light {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-.glass-card-light:hover {
-  border-color: #10b981;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -5px rgba(16, 185, 129, 0.12);
-}
+  .glass-card-light:hover {
+    border-color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -5px rgba(16, 185, 129, 0.12);
+  }
 
-/* ── Cropin Signature Pill Buttons & Chips ────────────────────── */
-.cropin-btn-cyan {
-  background: linear-gradient(135deg, #00a8e8, #0ea5e9);
-  color: #ffffff;
-  font-weight: 800;
-  border-radius: 9999px;
-  box-shadow: 0 8px 25px -5px rgba(14, 165, 233, 0.4);
-  transition: all 0.2s ease-in-out;
-}
-.cropin-btn-cyan:hover {
-  background: linear-gradient(135deg, #0284c7, #00a8e8);
-  transform: scale(1.03);
-  box-shadow: 0 12px 30px -4px rgba(14, 165, 233, 0.6);
-}
+  /* ── Custom Inputs ───────────────────────────────────────────── */
+  .fm-input {
+    width: 100%;
+    background: rgba(8, 28, 19, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    color: #f8fafc;
+    outline: none;
+    min-height: 48px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
 
-.cropin-chip-lime {
-  background: #4ade80;
-  color: #022c22;
-  font-weight: 800;
-  border-radius: 9999px;
-  padding: 0.35rem 1rem;
-  box-shadow: 0 4px 15px -3px rgba(74, 222, 128, 0.3);
-}
+  .fm-input::placeholder {
+    color: #64748b;
+  }
 
-/* ── Risk Level Borders & Glows ──────────────────────────────── */
-.fm-card-high {
-  border: 1.5px solid rgba(239, 68, 68, 0.6) !important;
-  box-shadow: 0 8px 30px -8px rgba(239, 68, 68, 0.25) !important;
-}
-.fm-card-high:hover {
-  border-color: rgba(239, 68, 68, 0.9) !important;
-  box-shadow: 0 12px 35px -6px rgba(239, 68, 68, 0.35) !important;
-}
+  .fm-input:focus {
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+  }
 
-.fm-card-medium {
-  border: 1.5px solid rgba(245, 158, 11, 0.6) !important;
-  box-shadow: 0 8px 30px -8px rgba(245, 158, 11, 0.25) !important;
-}
-.fm-card-medium:hover {
-  border-color: rgba(245, 158, 11, 0.9) !important;
-  box-shadow: 0 12px 35px -6px rgba(245, 158, 11, 0.35) !important;
-}
+  .fm-input-error {
+    border-color: #ef4444;
+  }
 
-.fm-card-low {
-  border: 1.5px solid rgba(74, 222, 128, 0.5) !important;
-  box-shadow: 0 8px 30px -8px rgba(74, 222, 128, 0.2) !important;
-}
-.fm-card-low:hover {
-  border-color: rgba(74, 222, 128, 0.8) !important;
-  box-shadow: 0 12px 35px -6px rgba(74, 222, 128, 0.3) !important;
-}
-
-/* ── High-Contrast Badges ───────────────────────────────────── */
-.badge-high {
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
-  border: 1px solid rgba(239, 68, 68, 0.5);
-}
-
-.badge-medium {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fcd34d;
-  border: 1px solid rgba(245, 158, 11, 0.5);
-}
-
-.badge-low {
-  background: rgba(74, 222, 128, 0.2);
-  color: #86efac;
-  border: 1px solid rgba(74, 222, 128, 0.5);
-}
-
-/* ── Progress Track ──────────────────────────────────────────── */
-.fm-progress-track {
-  background: rgba(8, 28, 19, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9999px;
-  height: 8px;
-  overflow: hidden;
-}
-
-.fm-progress-fill {
-  background: linear-gradient(90deg, #22c55e, #4ade80);
-  border-radius: 9999px;
-  height: 100%;
-  transition: width 0.6s ease;
-}
-
-/* ── Custom Inputs ───────────────────────────────────────────── */
-.fm-input {
-  width: 100%;
-  background: rgba(8, 28, 19, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
-  padding: 0.75rem 1.25rem;
-  font-size: 0.875rem;
-  color: #f8fafc;
-  outline: none;
-  min-height: 48px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-.fm-input::placeholder {
-  color: #64748b;
-}
-
-.fm-input:focus {
-  border-color: #4ade80;
-  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
-}
-
-.fm-input-error {
-  border-color: #ef4444;
-}
-
-.fm-input-error:focus {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+  .fm-input-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+  }
 }
 
 /* ── Custom Scrollbars ───────────────────────────────────────── */

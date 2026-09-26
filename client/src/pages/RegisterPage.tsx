@@ -113,7 +113,7 @@ export const RegisterPage: React.FC = () => {
                 Full Name
               </label>
               <div className="relative">
-                <UserIcon className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                <UserIcon className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                 <input
                   type="text"
                   value={name}
@@ -130,7 +130,7 @@ export const RegisterPage: React.FC = () => {
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                <Mail className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                 <input
                   type="email"
                   value={email}
@@ -147,7 +147,7 @@ export const RegisterPage: React.FC = () => {
                 Password
               </label>
               <div className="relative">
-                <Lock className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                <Lock className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                 <input
                   type="password"
                   value={password}
