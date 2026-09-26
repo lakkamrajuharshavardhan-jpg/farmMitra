@@ -97,7 +97,25 @@ export const CopilotDrawer: React.FC<CopilotDrawerProps> = ({
         setInternalChats((prev) => [...prev, res.userMessage, res.assistantMessage]);
       }
     } catch (err: any) {
-      alert(err.message || 'Failed to send query to FarmMitra AI');
+      console.warn('AI Chat request error:', err.message);
+      const now = new Date().toISOString();
+      const fallbackUserMsg: ChatMessage = {
+        id: `user_${Date.now()}`,
+        role: 'user',
+        message: textToSend,
+        created_at: now,
+      };
+      const fallbackAsstMsg: ChatMessage = {
+        id: `asst_${Date.now()}`,
+        role: 'assistant',
+        message: 'Hello! I am **FarmMitra AI**. To get customized agronomic advisories for your plot, navigate to your Field Details page and click **"Request New Advisory"**. For general farming guidance or navigation tips, feel free to ask!',
+        created_at: now,
+      };
+      if (onNewMessages) {
+        onNewMessages(fallbackUserMsg, fallbackAsstMsg);
+      } else {
+        setInternalChats((prev) => [...prev, fallbackUserMsg, fallbackAsstMsg]);
+      }
     } finally {
       setSending(false);
     }
