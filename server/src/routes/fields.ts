@@ -164,7 +164,7 @@ router.post('/demo-seed', async (req: Request, res: Response): Promise<void> => 
         latitude: '17.9784',
         longitude: '79.5941',
         acreage: '4.5',
-      })
+      } as any)
       .returning();
 
     const [demoAdvisory] = await db
@@ -182,7 +182,7 @@ router.post('/demo-seed', async (req: Request, res: Response): Promise<void> => 
         plan_drift_detected: true,
         drift_explanation: 'Plan Drift Detected: Farmer skipped Basal NPK Fertilizer application on Day 30. Compensatory application of NPK 19:19:19 + Chelated Zinc recommended to restore vegetative vigor.',
         next_check_in: checkInStr,
-      })
+      } as any)
       .returning();
 
     await db.insert(treatment_logs).values({
@@ -190,7 +190,7 @@ router.post('/demo-seed', async (req: Request, res: Response): Promise<void> => 
       action_taken: 'Basal NPK 19:19:19 Fertilizer',
       status: 'skipped',
       farmer_note: 'Skipped due to lack of labor on Day 30',
-    });
+    } as any);
 
     res.status(201).json({ message: 'Demo field seeded successfully', field: demoField });
     return;
@@ -409,7 +409,7 @@ router.post('/:id/advisory', async (req: Request, res: Response): Promise<void> 
         plan_drift_detected: generated.planDriftDetected,
         drift_explanation: generated.driftExplanation,
         next_check_in: generated.nextCheckInDate,
-      })
+      } as any)
       .returning();
 
     res.status(201).json({ advisory: newAdvisory, days_since_sowing: daysSinceSowing, weather });
@@ -460,7 +460,7 @@ router.post('/:id/treatment-logs', async (req: Request, res: Response): Promise<
           action_taken,
           status,
           farmer_note: farmer_note || null,
-        })
+        } as any)
         .returning();
 
       res.status(201).json({ log: newLog });
@@ -579,7 +579,7 @@ router.post('/:id/chat', async (req: Request, res: Response): Promise<void> => {
         role: 'user',
         message: promptText,
         image_url: imageBase64 ? 'attached' : null,
-      })
+      } as any)
       .returning();
 
     const [assistantMsgRecord] = await db
@@ -588,7 +588,7 @@ router.post('/:id/chat', async (req: Request, res: Response): Promise<void> => {
         field_id: fieldId,
         role: 'assistant',
         message: aiReply,
-      })
+      } as any)
       .returning();
 
     res.status(201).json({
