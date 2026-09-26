@@ -1,0 +1,17 @@
+{
+  "short_name": "FarmMitra",
+  "name": "FarmMitra — AI Agronomy Journal & Copilot",
+  "description": "Mobile-first AI crop advisory, live Open-Meteo weather tracking, and leaf doctor vision copilot.",
+  "icons": [
+    {
+      "src": "/leaf.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#060d16",
+  "theme_color": "#060d16",
+  "display": "standalone",
+  "orientation": "portrait"
+}
